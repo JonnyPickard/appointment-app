@@ -1,7 +1,7 @@
 class UserInputCheck
 
   def check_validity input
-    if (input =~ /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)
+    if (input =~ /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0]$/)
       true
     else
       false
@@ -9,10 +9,8 @@ class UserInputCheck
   end
 
   def time_is_between_8_and_3? input
-
     hours = input.split(//).first(2).join.to_i
 
-    p hours
     if hours <= 8 || hours >= 15
       return false
     else

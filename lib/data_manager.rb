@@ -23,4 +23,9 @@ class DataManager
 
     availability_slots = JSON.pretty_generate(availability_slots)
   end
+
+  def read_temp_file
+    file = File.read("storage/temp.json")
+    JSON.parse(file)
+  end
 end
