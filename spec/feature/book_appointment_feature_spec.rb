@@ -86,5 +86,5 @@ describe AppointmentManager, "#book\n" do
 end
 
 def clean_persistent_data
-  puts("'#clean_persistent_data': Update this to work after persistence architecture is in place")
+  File.delete("storage/temp.json")
 end
