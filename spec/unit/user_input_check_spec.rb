@@ -19,4 +19,16 @@ describe UserInputCheck do
       expect(user_input_check.check_validity(invalid_time)).to be false
     end
   end
+
+  describe "#time_is_between_8_and_3?" do
+    it "Returns false if the time is outside of 8 and 3" do
+      invalid_time = "18:00"
+      expect(user_input_check.time_is_between_8_and_3?(invalid_time)).to be false
+    end
+
+    it "Returns true if the time is inbetween 8 and 3" do
+      valid_time = "12:00"
+      expect(user_input_check.time_is_between_8_and_3?(valid_time)).to be true
+    end
+  end
 end

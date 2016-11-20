@@ -7,4 +7,16 @@ class UserInputCheck
       false
     end
   end
+
+  def time_is_between_8_and_3? input
+
+    hours = input.split(//).first(2).join.to_i
+
+    p hours
+    if hours <= 8 || hours >= 15
+      return false
+    else
+      return true
+    end
+  end
 end
