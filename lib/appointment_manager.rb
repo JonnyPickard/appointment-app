@@ -15,7 +15,7 @@ class AppointmentManager
       f.write(file)
     end
   end
-  
+
   def add_availability_key_to_temp_file file
     file = File.read("availability_slots.json")
 

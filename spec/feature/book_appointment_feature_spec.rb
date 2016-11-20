@@ -1,13 +1,15 @@
 require 'spec_helper'
 
+require_relative '../helpers/json_helpers.rb'
 require_relative '../../lib/appointment_manager.rb'
 
 describe AppointmentManager, "#book\n" do
 
+  json_helpers = JSONHelpers.new
   appointment_manager = described_class.new
 
   after(:each) do
-    clean_persistent_data
+    json_helpers.clean_persistent_data
   end
 
   context "User can successfully book an available appointment" do
@@ -83,8 +85,4 @@ describe AppointmentManager, "#book\n" do
       expect { appointment_manager.book(time) }.to output(error_message).to_stdout
     end
   end
-end
-
-def clean_persistent_data
-  File.delete("storage/temp.json")
 end
