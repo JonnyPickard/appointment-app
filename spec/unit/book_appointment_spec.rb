@@ -7,6 +7,7 @@ require_relative '../../lib/appointment_manager.rb'
 describe AppointmentManager do
 
   appointment_manager = described_class.new
+
   json_helpers = JSONHelpers.new
 
   after(:each) do

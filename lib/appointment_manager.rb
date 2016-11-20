@@ -27,4 +27,5 @@ class AppointmentManager
 
     availability_slots = JSON.pretty_generate(availability_slots)
   end
+
 end
