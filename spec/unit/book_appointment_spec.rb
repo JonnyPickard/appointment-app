@@ -25,11 +25,11 @@ describe AppointmentManager do
     it "Adds an { availability : boolean } key value pair to the temp.json file" do
       create_mock_temp_file
 
-      appointment_manager.add_availability_key_to_temp_file
+      file = File.read("storage/temp.json")
+      availability_slots = appointment_manager.add_availability_key_to_temp_file file
 
-      file               = File.read("storage/temp.json")
-      availability_slots = JSON.parse(file)
-      availability_slot = availability_slots["availability_slots"][0]
+      availability_slots = JSON.parse(availability_slots)
+      availability_slot  = availability_slots["availability_slots"][0]
 
       expect(availability_slot).to have_key("available")
     end
