@@ -51,7 +51,7 @@ class AppointmentManager
 
     if minutes == 5
       minutes = 0
-      if hours = 13
+      if hours == 13
         raise "Error: Out of time frame"
       else
         hours += 1

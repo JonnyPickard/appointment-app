@@ -2,6 +2,15 @@ require 'json'
 
 class DataManager
 
+  def import
+    if File.file?("storage/temp.json")
+      return
+    else
+      load_availability_slots_from_json
+      add_availability_key_to_temp_file read_temp_file
+    end
+  end
+
   def load_availability_slots_from_json #load json
     file = File.read("availability_slots.json")
 

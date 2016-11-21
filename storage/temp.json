@@ -22,25 +22,25 @@
       "time": "08:20:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": false
+      "available": true
     },
     {
       "time": "08:30:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": false
+      "available": true
     },
     {
       "time": "08:40:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": false
+      "available": true
     },
     {
       "time": "08:50:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": false
+      "available": true
     },
     {
       "time": "08:50:00",
@@ -196,49 +196,49 @@
       "time": "12:00:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "12:00:00",
       "slot_size": 10,
       "doctor_id": 2,
-      "available": true
+      "available": false
     },
     {
       "time": "12:10:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "12:20:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "12:30:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "12:40:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "12:50:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "12:50:00",
       "slot_size": 10,
       "doctor_id": 2,
-      "available": true
+      "available": false
     },
     {
       "time": "13:00:00",
@@ -322,13 +322,13 @@
       "time": "14:50:00",
       "slot_size": 10,
       "doctor_id": 1,
-      "available": true
+      "available": false
     },
     {
       "time": "14:50:00",
       "slot_size": 10,
       "doctor_id": 2,
-      "available": true
+      "available": false
     },
     {
       "time": "15:00:00",
