@@ -62,10 +62,13 @@ describe AppointmentManager do
       json_helpers.clean_persistent_data
     end
 
-    xit "Finds the next available time" do
+    it "Finds the next available time" do
       appointment_manager.book_slot("08:00", 0)
       appointment_manager.book_slot("08:00", 1)
-      expect(appointment_manager.find_next_available_time("08:00")).to eq "08:10"
+      appointment_manager.book_slot("08:10", 0)
+      appointment_manager.book_slot("08:20", 0)
+      appointment_manager.book_slot("08:30", 0)
+      expect(appointment_manager.find_next_available_time("08:00")).to eq "08:40"
     end
   end
 

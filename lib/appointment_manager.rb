@@ -35,7 +35,11 @@ class AppointmentManager
   end
 
   def find_next_available_time(time)
-
+    if check_availability(time)[0] == true
+      return time
+    else
+      find_next_available_time(add_10_minutes(time))
+    end
   end
 
   def add_10_minutes(time)
