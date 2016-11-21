@@ -24,15 +24,17 @@ describe AppointmentManager do
     end
 
     it "Returns true if the slot is avaible" do
-      appointment_manager.check_availability("08:00")
+      expect(appointment_manager.check_availability("08:00")[0]).to be true
     end
 
     it "Returns false if the slot is non-existant" do
-      appointment_manager.check_availability("07:00")
+      expect(appointment_manager.check_availability("07:00")[0]).to be false
     end
 
-    xit "Returns false if the slot is booked" do
-      appointment_manager.check_availability("08:00")
+    it "Returns false if the slot is booked" do
+      appointment_manager.book_slot("08:00", 0)
+      appointment_manager.book_slot("08:00", 1)
+      expect(appointment_manager.check_availability("08:00")[0]).to be false
     end
   end
 
@@ -42,7 +44,7 @@ describe AppointmentManager do
     end
 
     it "Successfully books a slot" do
-      appointment_manager.book_slot("08:00")
+      appointment_manager.book_slot("08:00", 0)
     end
   end
 end

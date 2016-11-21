@@ -30,7 +30,7 @@ class DataManager
   end
 
   def overwrite_save data
-    File.open("temp.json","w") do |f|
+    File.open("storage/temp.json","w") do |f|
       f.write(JSON.pretty_generate(data))
     end
   end
