@@ -28,4 +28,10 @@ class DataManager
     file = File.read("storage/temp.json")
     JSON.parse(file)
   end
+
+  def overwrite_save data
+    File.open("temp.json","w") do |f|
+      f.write(JSON.pretty_generate(data))
+    end
+  end
 end

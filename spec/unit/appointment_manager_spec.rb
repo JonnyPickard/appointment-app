@@ -16,7 +16,7 @@ describe AppointmentManager do
   describe "#check_availability" do
 
     before(:each) do
-      json_helpers.create_mock_temp_file
+      json_helpers.create_mock_temp_file_with_availability
     end
 
     after(:each) do
@@ -33,6 +33,16 @@ describe AppointmentManager do
 
     xit "Returns false if the slot is booked" do
       appointment_manager.check_availability("08:00")
+    end
+  end
+
+  describe "#book_slot" do
+    before(:each) do
+      json_helpers.create_mock_temp_file_with_availability
+    end
+
+    it "Successfully books a slot" do
+      appointment_manager.book_slot("08:00")
     end
   end
 end

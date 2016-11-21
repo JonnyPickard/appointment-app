@@ -22,4 +22,11 @@ class AppointmentManager
       end
     end
   end
+
+  def book_slot(time, data_manager = DataManager.new)
+    availability = data_manager.read_temp_file["availability_slots"]
+    availability.find { |h1| h1['time'] == "#{time}:00" }["available"] = false
+
+    data_manager.overwrite_save(availability)
+  end
 end
