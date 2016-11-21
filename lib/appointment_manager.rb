@@ -5,10 +5,13 @@ require_relative './data_manager.rb'
 class AppointmentManager
 
   def book(time)
-    availability = check_availability(time)
-
-    if availability[0]
-      book_slot(time, availability[1])
+    if check_availability(time)[0] == true
+      book_slot(time, check_availability(time)[1])
+      return time
+    else
+      time = find_next_available_time(time)
+      book_slot(time, check_availability(time)[1])
+      return time
     end
   end
 

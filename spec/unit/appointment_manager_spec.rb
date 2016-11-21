@@ -8,8 +8,32 @@ describe AppointmentManager do
   json_helpers = JSONHelpers.new
 
   describe "#book" do
-    xit "" do
+    before(:each) do
+      json_helpers.create_mock_temp_file_with_availability
+    end
 
+    after(:each) do
+      json_helpers.clean_persistent_data
+    end
+
+    it "Successfully books the next available time slot 1" do
+      appointment_manager.book_slot("08:00", 0)
+      appointment_manager.book_slot("08:00", 1)
+      appointment_manager.book_slot("08:10", 0)
+      appointment_manager.book_slot("08:20", 0)
+      appointment_manager.book_slot("08:30", 0)
+      expect(appointment_manager.book("08:00")).to eq "08:40"
+    end
+
+    it "Successfully books the next available time slot 2" do
+      appointment_manager.book_slot("08:00", 0)
+      appointment_manager.book_slot("08:00", 1)
+      appointment_manager.book_slot("08:10", 0)
+      appointment_manager.book_slot("08:20", 0)
+      appointment_manager.book_slot("08:30", 0)
+      appointment_manager.book_slot("08:40", 0)
+      appointment_manager.book_slot("08:50", 0)
+      expect(appointment_manager.book("08:00")).to eq "08:50"
     end
   end
 
