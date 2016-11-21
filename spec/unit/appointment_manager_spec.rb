@@ -32,6 +32,7 @@ describe AppointmentManager do
     end
 
     it "Returns false if the slot is booked" do
+
       appointment_manager.book_slot("08:00", 0)
       appointment_manager.book_slot("08:00", 1)
       expect(appointment_manager.check_availability("08:00")[0]).to be false

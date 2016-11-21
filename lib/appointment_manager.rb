@@ -17,21 +17,16 @@ class AppointmentManager
 
   def check_availability(time, data_manager = DataManager.new)
     availability = data_manager.read_temp_file["availability_slots"]
+    availability_slots = availability.select { |key| key['time'] == "#{time}:00" && key['available'] == true }
 
-    if availability.find { |h1| h1['time'] == "#{time}:00" }.nil?
+    if availability_slots.count == 0
       return [false, nil]
+    elsif availability_slots.count == 1
+      return [true, 0] if availability_slots[0]["available"]
+    elsif availability_slots.count == 2
+      return [true, 1] if availability_slots[1]["available"]
     else
-      available = availability.select { |h1| h1['time'] == "#{time}:00" }
-
-      if available[0]["available"]
-        return [true, 0]
-      else
-        if available[1]["available"]
-          return [true, 1]
-        else
-          return [false, nil]
-        end
-      end
+      return [false, nil]
     end
   end
 
