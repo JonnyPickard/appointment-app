@@ -1,14 +1,11 @@
 require 'json'
+require 'date'
 require_relative './data_manager.rb'
 
 class AppointmentManager
 
   def book(time)
-
     availability = check_availability(time)
-
-    p availability
-    puts "here"
 
     if availability[0]
       book_slot(time, availability[1])
@@ -35,5 +32,30 @@ class AppointmentManager
     availability["availability_slots"].select { |h1| h1['time'] == "#{time}:00" }[slot]["available"] = false
 
     data_manager.overwrite_save(availability)
+  end
+
+  def find_next_available_time(time)
+
+  end
+
+  def add_10_minutes(time)
+    minutes = time.split(//).last(2).join.to_i
+    hours   = time.split(//).first(2).join.to_i
+
+    if minutes == 5
+      minutes = 0
+      if hours = 13
+        raise "Error: Out of time frame"
+      else
+        hours += 1
+      end
+    elsif hours == 15
+      raise "Error: Out of time frame"
+    else
+      minutes += 10
+    end
+
+    time = DateTime.new(2016, 3, 4, hours, minutes, 0)
+    time.strftime('%I:%M')
   end
 end
