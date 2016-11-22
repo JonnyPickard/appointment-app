@@ -1,5 +1,5 @@
-Babylon Health Ruby Tech Test
-=============================
+Appointment Booking Ruby Tech Test 
+=================================
 
 To Run
 ------
@@ -15,7 +15,7 @@ pass the availability file a time in the command line e.g.
 About
 -----
 
-This is a ruby based tech test for Babylon Health.  
+This is a ruby based tech test that allows a user to book an appoinment.  
 
 Unfortunately I could not find enough time to get it 100% of the way there. In its present state (21/11/2016) it requires the final components linking up, final bug checks and linking up the feature testing suite.
 
